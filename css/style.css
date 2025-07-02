@@ -1,0 +1,763 @@
+/* Estilos base */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Variables de color */
+:root {
+    --nvidia-green: #76b900;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2a2a2a;
+    --light-gray: #e0e0e0;
+    --header-bg: #262626;
+    --card-bg: #2c2c2c;
+    --gradient-start: #1a1a1a;
+    --gradient-end: #2a2a2a;
+}
+
+.text-nvidia-green { color: var(--nvidia-green); }
+.bg-nvidia-green { background-color: var(--nvidia-green); }
+.border-nvidia-green { border-color: var(--nvidia-green); }
+
+/* Estilos para el encabezado */
+.header {
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-logo svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--nvidia-green);
+}
+
+.header-logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--light-gray);
+}
+
+.header-logo-text span {
+    color: var(--nvidia-green);
+}
+
+.nav-menu {
+    display: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-menu a:hover {
+    color: var(--nvidia-green);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-button {
+    position: relative;
+    color: #a0a0a0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.cart-button:hover {
+    color: var(--nvidia-green);
+}
+
+.cart-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.cart-count {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background-color: var(--nvidia-green);
+    color: var(--dark-gray);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    height: 1.25rem;
+    width: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-button {
+    display: block;
+    color: #a0a0a0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.mobile-menu-button:hover {
+    color: var(--nvidia-green);
+}
+
+.mobile-menu-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Media query para pantallas medianas */
+@media (min-width: 768px) {
+    .nav-menu {
+        display: flex;
+    }
+    .mobile-menu-button {
+        display: none;
+    }
+}
+
+/* Estilos para secciones */
+.section {
+    padding: 4rem 1rem;
+    text-align: center;
+    margin: 2rem 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    position: relative;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--light-gray);
+    margin-bottom: 3rem;
+}
+
+.section-title span {
+    color: var(--nvidia-green);
+}
+
+/* Estilos para la seccion de Heroe */
+.hero-section {
+    background: linear-gradient(to bottom right, var(--dark-gray), var(--medium-gray));
+    padding: 5rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background-elements {
+    position: absolute;
+    inset: 0;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.hero-background-element {
+    position: absolute;
+    border-radius: 9999px;
+    mix-blend-mode: multiply;
+    filter: blur(2rem);
+    opacity: 0.7;
+    animation: pulse 4s infinite ease-in-out;
+}
+
+.hero-background-element:nth-child(1) {
+    top: 25%;
+    left: 25%;
+    width: 10rem;
+    height: 10rem;
+    background-color: var(--nvidia-green);
+}
+
+.hero-background-element:nth-child(2) {
+    bottom: 33%;
+    right: 25%;
+    width: 8rem;
+    height: 8rem;
+    background-color: #4a4a4a;
+    animation-delay: 2s;
+}
+
+.hero-background-element:nth-child(3) {
+    top: 50%;
+    left: 50%;
+    width: 13rem;
+    height: 13rem;
+    background-color: #3a3a3a;
+    animation-delay: 4s;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+    color: var(--nvidia-green);
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: #a0a0a0;
+    margin-bottom: 2rem;
+}
+
+.button-primary {
+    display: inline-block;
+    background-color: var(--nvidia-green);
+    color: var(--dark-gray);
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.button-primary:hover {
+    background-color: #5a9000;
+    transform: scale(1.05);
+}
+
+/* Estilos para las tarjetas */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* Estilos base para las imagenes de fondo de las tarjetas */
+.card-image-background {
+    width: 100%;
+    height: 12rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 1rem;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    position: relative; /* Para el overlay */
+}
+
+/* Overlay para mejorar la legibilidad del texto sobre la imagen de fondo */
+.card-image-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)); /* Gradiente oscuro */
+    z-index: 1;
+}
+
+/* Estilos especificos para las imagenes de fondo de productos */
+.card-bg-laptop-gaming-hypr-x-pro {
+    background-image: url('https://i.pcmag.com/imagery/reviews/00ujXpkUDw1FIczR1gVekQk-1.fit_lim.size_919x518.v1722353639.jpg');
+}
+.card-bg-laptop-ultrabook-air {
+    background-image: url('https://ishop.gt/cdn/shop/files/1-11_2048x_42a885ec-4bf8-42f0-b3cb-a301f3b82602.webp?v=1718769925&width=823');
+}
+.card-bg-laptop-profesional-studio {
+    background-image: url('https://m.media-amazon.com/images/I/61UGE9cZVlL._AC_SL1500_.jpg');
+}
+.card-bg-laptop-economica-lite {
+    background-image: url('https://http2.mlstatic.com/D_NQ_NP_760040-MLM76112007095_042024-O-laptop-barata-acer-aspire-lite-14-intel-n100-8gb-256gb-w11.webp');
+}
+.card-bg-laptop-convertible-flex {
+    background-image: url('https://m.media-amazon.com/images/I/715abmjkZ9L._AC_SL1500_.jpg');
+}
+
+.card-bg-pc-gaming-apex {
+    background-image: url('https://apexgamingpcs.com/cdn/shop/files/Apex_Kryptonite_-_shadow_fbbfb929-63cc-4fb4-81a3-9670c3d1ab1f.png?v=1686053889');
+}
+.card-bg-pc-oficina-workstation {
+    background-image: url('https://volttierpc.com/5346-medium_default/pc-oficina-completo-intel-i5-12400.jpg');
+}
+.card-bg-mini-pc-compact {
+    background-image: url('https://m.media-amazon.com/images/I/61V+d+NYZEL._AC_SL1500_.jpg');
+}
+.card-bg-pc-disenador-proart {
+    background-image: url('https://dlcdnwebimgs.asus.com/gain/093af51c-1197-4f3c-b266-ba2869690dbd/w800/h828/fwebp');
+}
+.card-bg-pc-basica-home {
+    background-image: url('https://www.nitro-pc.es/blog/wp-content/uploads/2023/10/edit-pc-school-scaled.jpg');
+}
+
+.card-bg-monitor-curvo-ultrawide {
+    background-image: url('https://i.blogs.es/da7aaf/huawei-mateview-gt-3-/450_1000.jpeg');
+}
+.card-bg-teclado-mecanico-rgb {
+    background-image: url('https://oxdea.gt/wp-content/uploads/2020/08/erk.png');
+}
+.card-bg-mouse-gaming-precision {
+    background-image: url('https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2016/07/182474-lenovo-gaming-precision-mouse-m800.jpg?tf=3840x');
+}
+.card-bg-audifonos-gamer-surround {
+    background-image: url('https://m.media-amazon.com/images/I/81qvlpWgapL._AC_SL1500_._SX600_.jpg');
+}
+.card-bg-webcam-hd-stream {
+    background-image: url('https://img.pacifiko.com/PROD/resize/0/500x500/960-001087%20(7).jpg');
+}
+
+/* Estilos especificos para las imagenes de fondo de categorias */
+.card-bg-category-laptops {
+    background-image: url('https://cdn.thewirecutter.com/wp-content/media/2024/07/laptopstopicpage-2048px-3685-3x2-1.jpg?auto=webp&quality=75&crop=1.91:1&width=1200');
+}
+.card-bg-category-desktops {
+    background-image: url('https://tecnovortex.com/wp-content/uploads/2024/12/pc-gamer-escritorio.jpg');
+}
+.card-bg-category-accesorios {
+    background-image: url('https://www.superprof.co/blog/wp-content/uploads/2018/01/accesorios-pc-968x700.jpg');
+}
+
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* Para que el contenido este sobre el overlay */
+    z-index: 2;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--light-gray);
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    color: #a0a0a0;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.card-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--nvidia-green);
+    margin-bottom: 1.5rem;
+}
+
+.card-link, .card-button {
+    display: inline-block;
+    color: var(--nvidia-green);
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-decoration 0.3s ease-in-out;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+.card-button {
+    background-color: var(--nvidia-green);
+    color: var(--dark-gray);
+    font-weight: 700;
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.card-button:hover {
+    background-color: #5a9000;
+    transform: scale(1.05);
+}
+
+/* Estilos para la seccion "Por que elegirnos" */
+.why-choose-us-section {
+    background: linear-gradient(to bottom right, var(--medium-gray), #3a3a3a);
+}
+
+.why-choose-us-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.benefit-item svg {
+    width: 3rem;
+    height: 3rem;
+    color: var(--nvidia-green);
+    margin-bottom: 1rem;
+}
+
+.benefit-item h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--light-gray);
+    margin-bottom: 0.5rem;
+}
+
+.benefit-item p {
+    color: #a0a0a0;
+    font-size: 0.875rem;
+}
+
+/* Estilos para el formulario de contacto */
+.contact-form-container {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.8s ease-out forwards;
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: #a0a0a0;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #3a3a3a;
+    border: 1px solid #4a4a4a;
+    border-radius: 0.5rem;
+    color: var(--light-gray);
+    line-height: 1.25;
+    outline: none;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--nvidia-green);
+    box-shadow: 0 0 0 2px rgba(118, 185, 0, 0.5);
+}
+
+.form-group textarea {
+    min-height: 7.5rem;
+    resize: vertical;
+}
+
+.form-submit-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para el pie de pagina */
+.footer {
+    background-color: var(--header-bg);
+    padding: 2rem 1rem;
+    text-align: center;
+    color: #a0a0a0;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    margin-top: 2rem;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+}
+
+.footer a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer a:hover {
+    color: var(--nvidia-green);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: #a0a0a0;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: var(--nvidia-green);
+}
+
+.social-icons svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Keyframes de animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.1); }
+}
+
+/* Retrasos de animacion para efectos escalonados en cuadrculas */
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+
+/* Estilos responsivos */
+@media (min-width: 640px) {
+    .grid-container.products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+    .hero-description {
+        font-size: 1.25rem;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+    .grid-container.categories-grid,
+    .why-choose-us-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-container.products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .grid-container.products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Estilos para la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--nvidia-green);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #5a9000;
+}
+
+/* Estilos para el modal del carrito */
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.cart-modal:target {
+    display: flex;
+}
+
+.cart-modal-content {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.cart-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cart-modal-close:hover {
+    color: var(--nvidia-green);
+}
+
+.cart-modal-title {
+    color: var(--nvidia-green);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.cart-items-list {
+    text-align: left;
+    color: #a0a0a0;
+    margin-bottom: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid #3a3a3a;
+    border-bottom: 1px solid #3a3a3a;
+    padding: 1rem 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #3a3a3a;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-name {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.cart-item-remove {
+    color: #e74c3c;
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-left: 1rem;
+}
+
+.cart-item-remove:hover {
+    text-decoration: underline;
+}
+
+.cart-total {
+    text-align: right;
+    color: var(--light-gray);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.cart-checkout-button {
+    margin-top: 1.5rem;
+}
